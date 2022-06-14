@@ -6,6 +6,7 @@ import Header from '../ui/components/Header/Header'
 import light from '../ui/themes/light'
 import {useRouter} from 'next/router'
 import Footer from '../ui/components/Footer/Footer'
+import Head from 'next/head'
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -14,6 +15,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return(
   <ThemeProvider theme={light}>
+
+  <Head>
+    <title>Adote um Pet</title>
+  </Head>
+
   <div className="pageContainer">
 
     <div className="header">
