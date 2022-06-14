@@ -14,9 +14,21 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return(
   <ThemeProvider theme={light}>
-    {router.pathname === '/' ? <Header/> : <AdminHeader/>}
-    <Component {...pageProps} />
-    <Footer />
+  <div className="pageContainer">
+
+    <div className="header">
+      {router.pathname === '/' ? <Header/> : <AdminHeader/>}
+    </div>
+
+    <div className="mainContent">
+      <Component {...pageProps} />
+    </div>
+
+    <div className="footer">
+      <Footer/>
+    </div>
+
+  </div>
   </ThemeProvider>
   )
   
