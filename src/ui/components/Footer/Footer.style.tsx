@@ -1,6 +1,7 @@
 import { styled } from '@mui/material'
 
 export const FooterContainer = styled('footer')`
+  position: relative;
   height: 80px;
   width: 100%;
   bottom: 0;

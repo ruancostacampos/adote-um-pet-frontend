@@ -32,7 +32,7 @@ const Report: NextPage = () => {
               </TableRow>
             </TableHead>
 
-            <TableBody>
+            <TableBody sx={{padding: '200px'}}>
                 {reports.map((report) => (
                   <TableRow key={report._id}>
                     <TableCell>{report.pet.name}</TableCell>
