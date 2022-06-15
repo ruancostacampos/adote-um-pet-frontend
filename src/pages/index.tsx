@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Title from '../ui/components/Title/Title'
 import List from '../ui/components/List/List'
-import {Dialog, DialogActions, TextField, Grid, Button, Snackbar} from '@mui/material'
+import {Dialog, DialogActions, TextField, Grid, Button, Snackbar, CircularProgress, Box} from '@mui/material'
 
 // Importing hooks
 import {useIndex} from '../data/hooks/pages/useIndex'
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
     email, setEmail,
     monthlyAmount, setMonthlyAmount,
     message, setMessage,
-    adopt,
+    adopt, isLoading
   } = useIndex()
 
   return (
@@ -26,10 +26,20 @@ const Home: NextPage = () => {
         subtitle={<span>Com um pequeno valor mensal, você pode <strong>adotar um pet virtualmente.</strong></span>}
       />
 
-      <List 
+      {!isLoading && <List 
         pets={petList}
         onSelect={(pet) => setSelectedPet(pet)}
-      />
+      />}
+
+      
+      {isLoading &&
+        <Box sx={{display: 'flex', justifyContent: 'space-around'}}>
+          <CircularProgress/>
+        </Box>
+        
+      }
+
+      
       
       { /*  ======== Adoption dialog ========   */}
 

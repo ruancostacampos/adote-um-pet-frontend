@@ -12,12 +12,14 @@ export function useIndex(){
     const [email, setEmail] = useState('')
     const [monthlyAmount, setMonthlyAmount] = useState('')
     const [message, setMessage] = useState('')
+    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect( () => {
       ApiService.get('/pets')
       .then( (res) => {
         setPetList(res.data)
+        setIsLoading(false)
       })
     }, [])
 
@@ -62,5 +64,5 @@ export function useIndex(){
 
     return {petList, selectedPet, setSelectedPet, email, setEmail,
             monthlyAmount, setMonthlyAmount, message, setMessage,
-            adopt}
+            adopt, isLoading}
 }
